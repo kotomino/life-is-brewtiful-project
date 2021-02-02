@@ -1,55 +1,31 @@
-<h4 class="amber-text text-darken-2"><%= "#{@brewery.name}'s Reviews" if @brewery %></h4>
-
-  <div class="col s12 m6">
-    <div class="card small horizontal">
-      <div class="card-image">
-        <img src="https://lorempixel.com/100/190/nature/6">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <h5 class="header amber-text text-darken-2"><%= @brewery.name %></h5>
-          <p>
-            <%= @brewery.street %><br>
-            <%= @brewery.city %>,
-            <%= @brewery.state %>
-            <%= @brewery.postal_code %><br>
-            Phone: <%= @brewery.phone != "" ? @brewery.phone : "N/A" %><br>
-            Website: <%= link_to @brewery.website_url, @brewery.website_url %>
-            <br>
-            
-          </p>
-        </div>
-        <div class="card-action">
-          <%= link_to "See Reviews", brewery_ratings_path(@brewery) %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <h5 class="amber-text text-darken-2 col s12"><%= link_to "Add Review", new_brewery_rating_path(@brewery) %></h4>
-  
-
+<br>
 <div class="row">
-  <% if @brewery %>
-    <% @brewery.ratings.each do |rating| %>
-      <div class="col s12">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title"><%= rating.user.first_name %> <%= rating.user.last_name %></span>
+  <div class="col s6">
+      <div class="card small horizontal">
+        <div class="card-image">
+          <img src="https://lorempixel.com/100/190/nature/6">
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <h5 class="header amber-text text-darken-2"><%= @brewery.name %></h5>
             <p>
-              Rating (1-5): <%= rating.rating %><br>
-              Review: <%= rating.comment %>
+              <%= @brewery.street %><br>
+              <%= @brewery.city %>,
+              <%= @brewery.state %>
+              <%= @brewery.postal_code %><br><br>
+              Phone: <%= @brewery.phone != "" ? @brewery.phone : "N/A" %><br><br>
+              Website: <%= link_to @brewery.website_url, @brewery.website_url %>
+              <br>
             </p>
           </div>
           <div class="card-action">
-            <a href="#">This is a link</a>
-            <a href="#">This is a link</a>
+            <%= link_to "Write a Review", new_brewery_rating_path(@brewery) %>
           </div>
         </div>
       </div>
-    <% end %>
-  <% end %>
-  <br>
+    </div>
+  </div> 
 
-
-</div>
+<h4 class="amber-text text-darken-2">Past Reviews:</h4>
+<%= render @ratings || "There are no ratings." %>
+  

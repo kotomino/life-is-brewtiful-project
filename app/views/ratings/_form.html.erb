@@ -1,0 +1,26 @@
+<br>
+<%= form_for rating do |f| %>
+  <div class="row">
+    <div class="input-field col s7">
+      <%= f.collection_select :brewery_id, Brewery.all.alphabetize, :id, :name, include_blank: "Select Brewery" %>
+    </div>
+
+    <div class="input-field col s7">
+      <%= f.label :rating %>
+      <%= f.text_field :rating %>
+    </div>
+
+    <div class="input-field col s7">
+      <%= f.label :comment %>
+      <%= f.text_area :comment %>
+    </div>
+  </div>
+<br>
+  <%= f.submit button_name %>
+<% end %>
+
+<script>
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>

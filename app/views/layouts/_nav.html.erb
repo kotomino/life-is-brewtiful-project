@@ -1,16 +1,25 @@
-
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="/breweries">Brewery List</a></li>
+  <li><a href="/ratings/new">Review Brewery</a></li>
+</ul>
+<!-- Dropdown Structure -->
+<ul id="dropdown2" class="dropdown-content">
+  <li><a href="#!">My Profile</a></li>
+  <li><a href="#!">My Reviews</a></li>
+  <li class="divider"></li>
+  <li><%= link_to "Log Out", destroy_user_session_path, method: "DELETE" %></li>
+</ul>
 
 <nav class="amber darken-2">
     <div class="nav-wrapper container">
       <a href="/" class="brand-logo"><i class="material-icons right">local_drink</i>Brewtiful</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if user_signed_in? %>
-          <li><a href="/breweries">All Breweries</a></li>
-          <li><a href="/ratings/new">Review Brewery</a></li>
-          <li><a href="/breweries/new">Add Brewery</a></li>
-          <li><a href="#">My Profile</a></li>
-          <li><a href="<%= destroy_user_session_path %>">Log Out</a></li>
-          
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Breweries<i class="material-icons right">arrow_drop_down</i></a></li>
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown2"><%= current_user.first_name %> <%= current_user.last_name %><i class="material-icons right">arrow_drop_down</i></a></li>
         <% else %>
           <li><a href="/breweries">All Breweries</a></li>
           <li><a href="<%= new_user_session_path %>">Login</a></li>
@@ -21,7 +30,13 @@
 
   </nav>
 
+<script>
 
+$(document).ready(function(){
+    $(".dropdown-trigger").dropdown();
+  });
+
+</script>
 
 <style>
   .brand-logo{
