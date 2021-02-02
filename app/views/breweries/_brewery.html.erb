@@ -1,0 +1,27 @@
+  <div class="col s12 m6">
+    <div class="card small horizontal">
+      <div class="card-image">
+        <img src="https://lorempixel.com/100/190/nature/6">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h5 class="header amber-text text-darken-2"><%= brewery.name %></h5>
+          <p>
+            <%= brewery.street %><br>
+            <%= brewery.city %>,
+            <%= brewery.state %>
+            <%= brewery.postal_code %><br>
+            Phone: <%= brewery.phone != "" ? brewery.phone : "N/A" %><br>
+            Website: <%= link_to brewery.website_url, brewery.website_url %>
+            <br>
+            
+          </p>
+        </div>
+        <div class="card-action">
+          <%= link_to "See Reviews", brewery_path(brewery) %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+

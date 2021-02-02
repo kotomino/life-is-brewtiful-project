@@ -1,0 +1,29 @@
+
+  <br>
+    <%= form_tag("/breweries", method: "get") do %>
+      <div class="row">
+        <div class="input-field col s3">
+          <%= text_field_tag :query %>
+          <%= label_tag :query, "Enter brewery name, city, or state" %>
+        </div>
+        <div>
+          <br>
+          <%= submit_tag "Search"%>
+        </div>
+      </div>
+    <% end %>
+
+    <% if params[:query] %>
+      <p>
+        Search results for: '<%= params[:query] %>'
+      </p>
+    <% end %>
+  
+    <%= paginate @breweries %>
+    <div class="row">
+      <%= render @breweries || "There are no breweries!" %>
+    </div>
+    <%= paginate @breweries %>
+
+
+
