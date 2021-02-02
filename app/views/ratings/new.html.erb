@@ -1,0 +1,73 @@
+<br>
+<h4 class="amber-text text-darken-2">New Review</h4>
+<%= form_for @rating do |f| %>
+  <div class="row">
+    <div class="input-field col s10">
+      <%= f.label :rating %>
+      <%= f.text_field :rating %>
+    </div>
+
+    <div class="input-field col s10">
+      <%= f.label :comment %>
+      <%= f.text_area :comment %>
+    </div>
+  </div>
+<br>
+  <h5 class="amber-text text-darken-2">Select Brewery</h5>
+    <div class="row">
+      <div class="input-field col s10">
+        <%= f.collection_select :brewery_id, Brewery.all.alphabetize, :id, :name, include_blank: "Select Brewery" %>
+      </div>
+    </div>
+
+  <br>
+  <h5 class="amber-text text-darken-2">Add New Brewery</h5>
+  <%= f.fields_for :brewery, @rating.build_brewery do |bb| %>
+    <div class="row">
+      <div class="input-field col s10">
+        <%= bb.label :name %>
+        <%= bb.text_field :name %>
+      </div>
+
+      <div class="input-field col s10">
+        <%= bb.label :street %>
+        <%= bb.text_field :street %>
+      </div>
+
+      <div class="input-field col s5">
+        <%= bb.label :city %>
+        <%= bb.text_field :city %>
+      </div>
+
+      <div class="input-field col s2">
+        <%= bb.label :state %>
+        <%= bb.text_field :state %>
+      </div>
+
+      <div class="input-field col s3">
+        <%= bb.label :postal_code %>
+        <%= bb.text_field :postal_code %>
+      </div>
+
+      <div class="input-field col s10">
+        <%= bb.label :phone %>
+        <%= bb.text_field :phone %>
+      </div>
+
+      <div class="input-field col s10">
+        <%= bb.label :website_url %>
+        <%= bb.text_field :website_url %>
+      </div>
+    </div>
+  <% end %>
+
+  <br><br>
+
+  <%= f.submit class:'btn' %>
+<% end %>
+
+<script>
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>

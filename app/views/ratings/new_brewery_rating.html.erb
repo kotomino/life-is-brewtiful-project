@@ -1,0 +1,17 @@
+<br>
+<h4 class="amber-text text-darken-2">Review <%= @brewery.name %></h4>
+<%= form_for [@brewery, @rating] do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :brewery_id %>
+
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+
+  <br><br>
+
+  <%= f.submit class:'btn' %>
+<% end %>
+
