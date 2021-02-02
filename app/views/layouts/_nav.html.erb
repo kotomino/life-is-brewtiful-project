@@ -1,0 +1,34 @@
+
+
+<nav class="amber darken-2">
+    <div class="nav-wrapper container">
+      <a href="/" class="brand-logo"><i class="material-icons right">local_drink</i>Brewtiful</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+          <li><a href="/breweries">All Breweries</a></li>
+          <li><a href="/ratings/new">Review Brewery</a></li>
+          <li><a href="/breweries/new">Add Brewery</a></li>
+          <li><a href="#">My Profile</a></li>
+          <li><a href="<%= destroy_user_session_path %>">Log Out</a></li>
+          
+        <% else %>
+          <li><a href="/breweries">All Breweries</a></li>
+          <li><a href="<%= new_user_session_path %>">Login</a></li>
+          <li><a href="<%= new_user_registration_path %>">Sign Up</a></li>
+        <% end %>
+      </ul>
+    </div>
+
+  </nav>
+
+
+
+<style>
+  .brand-logo{
+    font-family: Georgia;
+  }
+  #nav-mobile{
+    font-family: Georgia, serif;
+  }
+</style>
+
