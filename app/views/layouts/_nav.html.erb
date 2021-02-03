@@ -8,7 +8,7 @@
   <li><a href="#!">My Profile</a></li>
   <li><a href="#!">My Reviews</a></li>
   <li class="divider"></li>
-  <li><%= link_to "Log Out", destroy_user_session_path, method: "DELETE" %></li>
+  <li><%= link_to "Logout", destroy_session_path, method: "DELETE" %></li>
 </ul>
 
 <nav class="amber darken-2">
@@ -21,9 +21,9 @@
           <!-- Dropdown Trigger -->
           <li><a class="dropdown-trigger" href="#!" data-target="dropdown2"><%= current_user.first_name %> <%= current_user.last_name %><i class="material-icons right">arrow_drop_down</i></a></li>
         <% else %>
-          <li><a href="/breweries">All Breweries</a></li>
-          <li><a href="<%= new_user_session_path %>">Login</a></li>
-          <li><a href="<%= new_user_registration_path %>">Sign Up</a></li>
+          <li><a href="/breweries">Breweries List</a></li>
+          <li><%= link_to "Login", login_path %></li>
+          <li><%= link_to "Signup", signup_path %></li>
         <% end %>
       </ul>
     </div>
