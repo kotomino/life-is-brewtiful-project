@@ -1,12 +1,12 @@
 <div class="row"> 
   <div class="col s12 m6">
-    <div class="card small horizontal">
+    <div class="card small horizontal z-depth-2">
       <div class="card-image">
         <img src="https://lorempixel.com/100/190/nature/6">
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <h5 class="header amber-text text-darken-2"><%= brewery.name %></h5>
+          <h5 class="header amber-text text-darken-2"><%= brewery.name %> (<%= rating_average(brewery) %>)</h5>
           <p>
             <%= brewery.street %><br>
             <%= brewery.city %>,
@@ -19,7 +19,7 @@
           </p>
         </div>
         <div class="card-action">
-          <%= link_to "See Reviews", brewery_ratings_path(brewery) %>
+          <a href="<%= brewery_ratings_path(brewery) %>">See Reviews (<%= brewery.ratings.count %>)</a>
         </div>
       </div>
     </div>
