@@ -13,6 +13,7 @@ class RatingsController < ApplicationController
   end
 
   def new
+    redirect_if_not_logged_in
     if @brewery
       @rating = @brewery.ratings.build
       render :new_brewery_rating
@@ -42,6 +43,7 @@ class RatingsController < ApplicationController
   end
 
   def edit
+    redirect_if_not_owner
   end
 
   def update
@@ -57,6 +59,11 @@ class RatingsController < ApplicationController
     @rating.destroy
     flash.now[:notice] = "Your review was removed."
     redirect_to brewery_ratings_path(@rating.brewery_id)
+  end
+
+  def personal_index
+    redirect_if_not_logged_in
+    @ratings = current_user.ratings
   end
 
   private
