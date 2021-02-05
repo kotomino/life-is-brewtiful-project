@@ -8,6 +8,10 @@ class BreweriesController < ApplicationController
     end
   end
 
+  def top100
+    @breweries = Brewery.top100
+  end
+
   private
 
   def brewery_params

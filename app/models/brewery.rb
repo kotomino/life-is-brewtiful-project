@@ -12,4 +12,8 @@ class Brewery < ApplicationRecord
     order(:name)
   end
 
+  def self.top100
+    left_joins(:ratings).group(:id).order('AVG(ratings.rating) DESC').limit(100)
+  end
+
 end
