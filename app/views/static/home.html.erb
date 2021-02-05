@@ -1,17 +1,19 @@
-<br>
+<center>
+<%= image_tag("banners/Brewery_2_banner.jpg", width: "1255px") %>
+</center>
 <div class="row">
     <div class="col s4">
       <div class="card">
         <div class="card-image">
-          <img src="images/brewery.jpg">
-          <span class="card-title">Card Title</span>
+          <%= image_tag "cards/brewery.jpg" %>
+          <span class="card-title">Top 100</span>
         </div>
         <div class="card-content">
           <p>I am a very simple card. I am good at containing small bits of information.
           I am convenient because I require little markup to use effectively.</p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <a href="/top100">The most popular breweries in the USA!</a>
         </div>
       </div>
     </div>
@@ -19,15 +21,15 @@
     <div class="col s4">
       <div class="card">
         <div class="card-image">
-          <img src="images/brewery.jpg">
-          <span class="card-title">Card Title</span>
+          <%= image_tag "cards/Banner2.jpg" %>
+          <span class="card-title">NY Breweries</span>
         </div>
         <div class="card-content">
           <p>I am a very simple card. I am good at containing small bits of information.
           I am convenient because I require little markup to use effectively.</p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <a href="/breweries?query=New+York&commit=Search">View all New York breweries</a>
         </div>
       </div>
     </div>
@@ -35,8 +37,8 @@
     <div class="col s4">
       <div class="card">
         <div class="card-image">
-          <img src="images/brewery.jpg">
-          <span class="card-title">Card Title</span>
+          <%= image_tag "cards/outdoor.jpg" %>
+          <span class="card-title">Rebrew</span>
         </div>
         <div class="card-content">
           <p>I am a very simple card. I am good at containing small bits of information.
@@ -48,5 +50,9 @@
       </div>
     </div>
   </div>
+<center>
+<%= image_tag("banners/brewery.jpg", width: "1255px") %>
+<%= image_tag("banners/angel-brewery.jpg", width: "1255px") %>
+</center>
 
 
