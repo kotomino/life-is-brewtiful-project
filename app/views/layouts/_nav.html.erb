@@ -1,14 +1,21 @@
-<!-- Dropdown Structure -->
+<!-- Dropdown Logged In "Breweries" -->
 <ul id="dropdown1" class="dropdown-content">
   <li><a href="/breweries">Brewery List</a></li>
   <li><a href="/ratings/new">Review Brewery</a></li>
+  <li><%= link_to "Top 100", top100_path %></li>
 </ul>
-<!-- Dropdown Structure -->
+<!-- Dropdown Logged In "My Profile" -->
 <ul id="dropdown2" class="dropdown-content">
-  <li><a href="#!">My Profile</a></li>
-  <li><a href="#!">My Reviews</a></li>
+  <li><%= link_to "My Profile", profile_path %></li>
+  <li><%= link_to "My Reviews", my_reviews_path %></li>
   <li class="divider"></li>
   <li><%= link_to "Logout", destroy_session_path, method: "DELETE" %></li>
+
+</ul>
+<!-- Dropdown Logged Out "Breweries" -->
+<ul id="dropdown3" class="dropdown-content">
+  <li><a href="/breweries">Brewery List</a></li>
+  <li><%= link_to "Top 100", top100_path %></li>
 </ul>
 
 <nav class="amber darken-2">
@@ -17,13 +24,20 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if user_signed_in? %>
           <!-- Dropdown Trigger -->
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Breweries<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons left">store</i>     Breweries     <i class="material-icons right">arrow_drop_down</i></a></li>
           <!-- Dropdown Trigger -->
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown2"><%= current_user.first_name %> <%= current_user.last_name %><i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">
+          <% if current_user.image.attached? %>
+            <img class="circle" align="left" src="<%=(url_for(current_user.image.variant(resize: "40x40^", crop: '40x40+0+0')))%>"> 
+          <% else %>
+            <%= image_tag("users/profile_pic.jpg", width: "40px", align:"left", class:"circle") %>
+          <% end %>
+          <%= current_user.first_name %> <%= current_user.last_name %><i class="material-icons right">arrow_drop_down</i></a></li>
         <% else %>
-          <li><a href="/breweries">Breweries List</a></li>
-          <li><%= link_to "Login", login_path %></li>
-          <li><%= link_to "Signup", signup_path %></li>
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown3"><i class="material-icons left">store</i>Breweries<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a href="/login"><i class="material-icons left">account_circle</i>Login</a></li>
+          <li><a href="/signup"><i class="material-icons left">person_add</i>Signup</a></li>
         <% end %>
       </ul>
     </div>
