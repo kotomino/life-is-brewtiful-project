@@ -13,4 +13,18 @@ class ApplicationController < ActionController::Base
   def login_user
     session[:user_id] = @user.id
   end
+
+  def redirect_if_not_logged_in
+    flash[:error] = ["You're not logged in."] unless user_signed_in?
+    redirect_to login_path unless user_signed_in?
+  end
+
+  def redirect_if_logged_in
+    flash[:error] = ["You're already logged in."] if user_signed_in?
+    redirect_to breweries_path if user_signed_in?
+  end
+
+  def redirect_if_not_owner
+    redirect_to breweries_path unless @rating.user == current_user
+  end
 end
