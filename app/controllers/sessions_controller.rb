@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create # post /login
     @user = User.find_by_email(params[:email])
-
+ 
     if @user && @user.authenticate(params[:password])
       login_user
       redirect_to breweries_path
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
   def google
     @user = User.find_or_create_by(email: auth["email"], first_name: auth["first_name"], last_name: auth["last_name"]) do |user|
-      @user.password = SecureRandom.hex(10)
+      user.password = SecureRandom.hex(10)
     end
     if @user && @user.id #if user exists and is saved 
       login_user
@@ -35,9 +35,8 @@ class SessionsController < ApplicationController
 
   def facebook
     @user = User.find_or_create_by(email: auth["email"], first_name: fb_first_name, last_name: fb_last_name) do |user|
-      @user.password = SecureRandom.hex(10)
+      user.password = SecureRandom.hex(10)
     end 
-    # binding.pry
     if @user && @user.id #if user exists and is saved 
       login_user
       redirect_to breweries_path
