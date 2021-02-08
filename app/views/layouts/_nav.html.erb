@@ -24,13 +24,13 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if user_signed_in? %>
           <!-- Dropdown Trigger -->
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons left">store</i>     Breweries     <i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons left">store</i>Breweries<i class="material-icons right">arrow_drop_down</i></a></li>
           <!-- Dropdown Trigger -->
           <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">
           <% if current_user.image.attached? %>
-            <img class="circle" align="left" src="<%=(url_for(current_user.image.variant(resize: "40x40^", crop: '40x40+0+0')))%>"> 
+            <img class="circle" src="<%=(url_for(current_user.image.variant(resize: "30x30^", crop: '30x30+0+0')))%>"> 
           <% else %>
-            <%= image_tag("users/profile_pic.jpg", width: "40px", align:"left", class:"circle") %>
+            <%= image_tag("users/profile_pic.jpg", width: "30px", class:"circle") %>
           <% end %>
           <%= current_user.first_name %> <%= current_user.last_name %><i class="material-icons right">arrow_drop_down</i></a></li>
         <% else %>
@@ -52,12 +52,5 @@ $(document).ready(function(){
 
 </script>
 
-<style>
-  .brand-logo{
-    font-family: Georgia;
-  }
-  #nav-mobile{
-    font-family: Georgia, serif;
-  }
-</style>
+
 

@@ -11,10 +11,6 @@
                   <%= f.label :first_name %>
                   <%= f.text_field :first_name, autofocus: true %>
                 </div>
-                <div>
-                  <%= f.label "Profile Photo" %><br>
-                  <%= f.file_field :image %>
-                </div>
                 <div class="input-field">
                   <%= f.label :last_name %>
                   <%= f.text_field :last_name %>
@@ -27,6 +23,11 @@
                   <%= f.label :password %>
                   <%= f.password_field :password %>
                 </div>
+                <div>
+                  <%= f.label "Profile Photo*" %><br>
+                  <%= f.file_field :image %>
+                  <p style="color:gray">*Photo is optional but you will not be able to upload one after account creation</p>
+                </div>
                 <br>
                 <%= f.submit "Signup", class: "btn amber darken-2" %>
             <% end %>
@@ -36,7 +37,6 @@
                 <br>
                 <%= link_to "Log in with Facebook", '/auth/facebook', method: :post %>
             </div>
-
           </span>
         </center>
       </div>

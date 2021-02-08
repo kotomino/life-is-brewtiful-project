@@ -1,19 +1,20 @@
 
 <br>
 <div class="row">
-    <div class="col s12 m5">
-      <div class="card-panel z-depth-2">
-        <% if current_user.image.attached? %>
-            <img class="circle" align="right" src="<%=(url_for(current_user.image.variant(resize: "180x180^", crop: '180x180+0+0')))%>">
-          <% else %>
-            <%= image_tag("users/profile_pic.jpg", width: "180px", align:"right", class:"circle") %>
-          <% end %>
-        <h4 class="amber-text text-darken-2"><%= current_user.first_name %> <%= current_user.last_name %></h4>
-          <h6>
-          <br>
-          <%= current_user.email %><br><br>
-          Total Reviews: <%= link_to current_user.ratings.count, my_reviews_path %><br><br>
-          </h5>
-      </div>
+  <div class="col s5 offset-s3">
+    <div class="card-panel z-depth-2">
+      <% if current_user.image.attached? %>
+          <img class="circle" align="right" src="<%=(url_for(current_user.image.variant(resize: "150x150^", crop: '150x150+0+0')))%>"> 
+      <% else %>
+        <%= image_tag("users/profile_pic.jpg", width: "150px", align:"right", class:"circle") %>
+      <% end %>
+      
+      <h4 class="amber-text text-darken-2"><%= current_user.first_name %> <%= current_user.last_name %></h4>
+        <h6>
+        <br>
+        <%= current_user.email %><br><br>
+        Total Reviews: <%= link_to current_user.ratings.count, my_reviews_path %><br><br>
+        </h6>
+    </div>
   </div>
 </div>
