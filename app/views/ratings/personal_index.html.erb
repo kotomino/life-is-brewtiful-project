@@ -1,4 +1,4 @@
-<h4 class="amber-text text-darken-2"><%= current_user.first_name %> <%= current_user.last_name %>'s Reviews</h4>
+<br><h4 class="amber-text text-darken-2"><%= current_user.first_name %> <%= current_user.last_name %>'s Reviews</h4>
 <div>
   <% if @ratings.empty? %>
     <p>You have no reviews yet.</p>
@@ -14,8 +14,10 @@
                 <%= image_tag("users/profile_pic.jpg", width: "100px", align:"left", class:"circle") %>
               <% end %>
               <span class="card-title" style="margin-left:120px;"><%= rating.brewery.name %></span>
+              <p class="amber-text text-darken-2" style="margin-left:120px;">
+                <%= rating.rating %>.0 / 5.0
+              </p>
               <p style="margin-left:120px;">
-                Rating (1-5): <%= rating.rating %><br>
                 Reviewed on <%= rating.created_at.strftime("%B %d, %Y") %><br><br>
                 <%= rating.comment %>
               </p>

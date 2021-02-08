@@ -2,6 +2,7 @@
   <div class="col s8">
     <div class="card blue-grey darken-1 z-depth-2">
       <div class="card-content white-text">
+      
         <% if rating.user.image.attached? %>
           <img class="circle" align="left" src="<%=(url_for(rating.user.image.variant(resize: "100x100^", crop: '100x100+0+0')))%>">
         <% else %>
@@ -10,14 +11,16 @@
         <span class="card-title" style="margin-left:120px;">
           <%= rating.user.first_name %> <%= rating.user.last_name %><%= " (You)" if rating.user == current_user %>
         </span>
+        <p class="amber-text text-darken-2" style="margin-left:120px;">
+          <%= rating.rating %>.0 / 5.0
+        </p>
         <p style="margin-left:120px;">
-          <%= rating.rating %>.0 / 5.0<br>
           Reviewed on <%= rating.created_at.strftime("%B %d, %Y") %><br><br>
+        </p>
           <%= rating.comment %>
         </p>
       </div>
-      <div class="card-action">
-        <a href="#">View User Profile</a>
+      <div class="card-action" style="margin-left:120px;">
         <%= link_to "Edit", edit_rating_path(rating) if rating.user == current_user %>
         <%= link_to "Remove", rating_path(rating), method: "DELETE" if rating.user == current_user %>
       </div>
