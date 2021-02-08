@@ -13,7 +13,7 @@
               <%= @brewery.city %>,
               <%= @brewery.state %>
               <%= @brewery.postal_code %><br><br>
-              Phone: <%= @brewery.phone != "" ? @brewery.phone : "N/A" %><br><br>
+              Phone: <%= style(@brewery.phone) %><br><br>
               Website: <%= link_to @brewery.website_url, @brewery.website_url %>
               <br>
             </p>
@@ -26,6 +26,6 @@
     </div>
   </div> 
 
-<h4 class="amber-text text-darken-2">Past Reviews:</h4>
+<h4 class="amber-text text-darken-2">Reviews:</h4>
 <%= render @ratings || "There are no ratings." %>
   

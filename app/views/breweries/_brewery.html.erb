@@ -12,7 +12,7 @@
             <%= brewery.city %>,
             <%= brewery.state %>
             <%= brewery.postal_code %><br>
-            Phone: <%= brewery.phone != "" ? brewery.phone : "N/A" %><br>
+            Phone: <%= style(brewery.phone) %><br>
             Website: <%= link_to brewery.website_url, brewery.website_url %>
             <br>
             

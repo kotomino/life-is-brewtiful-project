@@ -1,3 +1,4 @@
+<br>
 <h4 class="amber-text text-darken-2">Top 100 Breweries</h4>
 <div class="row"> 
   <% @breweries.each.with_index(1) do |brewery, i| %>
@@ -14,7 +15,7 @@
               <%= brewery.city %>,
               <%= brewery.state %>
               <%= brewery.postal_code %><br>
-              Phone: <%= brewery.phone != "" ? brewery.phone : "N/A" %><br>
+              Phone: <%= style(brewery.phone) %><br>
               Website: <%= link_to brewery.website_url, brewery.website_url %>
               <br>
               
