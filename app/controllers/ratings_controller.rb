@@ -8,7 +8,7 @@ class RatingsController < ApplicationController
     if @brewery.nil?
       redirect_to breweries_path, alert: "Brewery not found"
     else
-      @ratings = @brewery.ratings
+      @ratings = @brewery.ratings.order_by_date
     end 
   end
 
@@ -43,6 +43,7 @@ class RatingsController < ApplicationController
   end
 
   def edit
+    redirect_if_not_logged_in
     redirect_if_not_owner
   end
 
@@ -56,6 +57,7 @@ class RatingsController < ApplicationController
   end
 
   def destroy
+    redirect_if_not_owner
     @rating.destroy
     flash.now[:notice] = "Your review was removed."
     redirect_to brewery_ratings_path(@rating.brewery_id)
