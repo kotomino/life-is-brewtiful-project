@@ -1,7 +1,9 @@
-<% if flash[:error] %>
-  <% flash[:error].each do |error| %>
-    <p><%= error %></p>
-  <% end %>
-<% end %>
-
-<%= content_tag("p", flash[:notice]) if flash[:notice] %>
+<div class="row">
+  <div class="col s6 offset-s5">
+    <% if flash[:error] %>
+      <% flash[:error].each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    <% end %>
+  <%= content_tag("p", flash[:notice]) if flash[:notice] %>
+</div>
