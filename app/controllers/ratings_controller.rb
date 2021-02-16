@@ -49,9 +49,10 @@ class RatingsController < ApplicationController
 
   def update
     if @rating.update(rating_params)
+      flash[:notice] = "Your rating for #{@rating.brewery.name} has been updated."
       redirect_to brewery_ratings_path(@rating.brewery_id)
     else
-      flash.now[:error] = @movie.errors.full_messages
+      flash.now[:error] = @rating.errors.full_messages
       render :edit
     end
   end
@@ -81,6 +82,7 @@ class RatingsController < ApplicationController
   end
 
   def rating_params
-    params.require(:rating).permit(:rating, :comment, :user_id, :brewery_id, brewery_attributes: [:name, :street, :city, :state, :postal_code, :phone, :website_url])
+    params.require(:rating).permit(:rating, :comment, :user_id, :brewery_id, 
+      brewery_attributes: [:name, :street, :city, :state, :postal_code, :phone, :website_url])
   end
 end
