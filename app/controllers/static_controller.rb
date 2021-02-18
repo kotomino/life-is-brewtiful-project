@@ -2,9 +2,7 @@ class StaticController < ApplicationController
   def home
   end
 
-  def about
+  def show_404
   end
 
-  def contact
-  end
 end

@@ -16,13 +16,14 @@ Rails.application.routes.draw do
   match '/auth/google_oauth2/callback' => 'sessions#google', via: [:get, :post]
   match '/auth/facebook/callback' => 'sessions#facebook', via: [:get, :post]
 
-  #static pages
   root to: 'static#home'
-  get '/about-us', to: 'static#about'
-  get '/contact-us', to: 'static#contact'
   
   get "/top100", to: "breweries#top100", as: "top100"
   get "/my_reviews", to: "ratings#personal_index", as: "my_reviews"
   get 'profile', to: "users#profile", as: "profile"
+
+  match '*path', via: :all, to: "static#show_404", constraints: lambda { |req|
+    req.path.exclude? 'rails/active_storage'
+}
 end
 
