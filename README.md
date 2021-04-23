@@ -1,6 +1,6 @@
 # Life Is Brewtiful Ruby on Rails App
 
-Flappy Bernie is a Rails web app for reviewing breweries in the United States.
+Life Is Brewtiful is a Rails web app that lets users review over 8000+ breweries from all over the United States. It includes profile pages, avatar images, top 100 breweries page, and a search feature. CRUD actions are available for all reviews belonging to the user.
 
 ## Preview
 ### Homepage
