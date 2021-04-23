@@ -1,55 +1,38 @@
-# README
+# Life Is Brewtiful Ruby on Rails App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Flappy Bernie is a Rails web app for reviewing breweries in the United States.
 
-Things you may want to cover:
+## Preview
+### Homepage
+![Screen Shot 2021-04-23 at 11 58 00 AM](https://user-images.githubusercontent.com/73256077/115898728-e0620000-a42b-11eb-8b85-2560ec1dc351.png)
+### Review Section
+![Screen Shot 2021-04-23 at 12 03 42 PM](https://user-images.githubusercontent.com/73256077/115898803-f40d6680-a42b-11eb-8049-6cdd88c1dca0.png)
 
-* Ruby version
+## Installation
+ 1. Clone the backend GitHub Repository in the same parent directory as the frontend.
+ ```
+ $ git clone git@github.com:kotomino/life-is-brewtiful-project.git
+ ```
+2. Run bundle install inside the project directory.
+``` 
+$ bundle install
+```
+3. Run db:create, db:migrate, db:seed with rails.
+```
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+```
 
-* System dependencies
+## Usage
+1. Run rails s in terminal inside the project folder.
+```
+$ rails s
+```
+2. Navigate to your browser and enter the rails localhost server (default: localhost:3000)
+3. Signup and create an account.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-# Life is Brewtiful- Brewery Reviews
-
-## MVP 
-- Models: User(reviwer), Rating, Brewery
-- CRUD Ratings for breweries in Atlanta
-- API from Open Brewery DB
-- Validations for attributes
-- Scope methods using Active Record
-- User Authentication (signup/login/logout/passwords)
-- Login with Facebook
-- RESTful URLs
-  - Nested '/new' route with form to parent resource
-  - Nested index or show route
-- Display validation errors
-- DRY
-
-### Routes
-
-/breweries
-/breweries/new (w/ nested rating form)
-/breweries/:id/ratings
-/breweries/:id/ratings/new 
-/ratings
-/ratings/new (select from existing breweries; link to '/breweries/new'; block creation of already existing brewery)
-
-
-## Functionalities
+### Functionalities
 User when not logged in:
 - Can see all reviews for Atlanta breweries by others
 - Can create new account
@@ -59,7 +42,7 @@ User logged in:
 - Can view account info
   
 
-## Nice-to-haves
+### Nice-to-haves
 - Sort by alphabetical order
 - Sort by Rating
 - Add breweries to favorites list
